@@ -6,7 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     public static Checkpoint instance;
 
-    [SerializeField] SpriteRenderer checpointSprite;
+    private SpriteRenderer checpointSprite;
     [SerializeField] Sprite checkOn;
     [SerializeField] Sprite checkOff;
     private bool Ischeckpoint;
@@ -14,6 +14,11 @@ public class Checkpoint : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        checpointSprite = GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
